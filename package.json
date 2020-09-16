@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "document": "typedoc --out documents/ src/"
+    "document": "typedoc --theme ./node_modules/typedoc-dark-theme/bin/default/ --out ./documents ./src --exclude **/tests/*.ts --mode file --tsconfig ./tsconfig.json"
   },
   "dependencies": {
     "@testing-library/react-native": "^7.0.2",
@@ -33,6 +33,7 @@
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "16.13.1",
+    "typedoc-dark-theme": "^0.0.11",
     "typescript": "^3.8.3"
   },
   "jest": {
