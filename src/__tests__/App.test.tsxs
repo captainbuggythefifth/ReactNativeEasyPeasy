@@ -1,0 +1,19 @@
+import React from 'react';
+import App from '../../App';
+
+import { render, RenderAPI, act } from '@testing-library/react-native';
+
+
+describe('App render', () => {
+  it('renders successfully', async () => {
+    let wrapper: RenderAPI;
+    
+
+    await act(async () => {
+      
+    });
+
+    wrapper = render(<App />);
+
+  })
+});
