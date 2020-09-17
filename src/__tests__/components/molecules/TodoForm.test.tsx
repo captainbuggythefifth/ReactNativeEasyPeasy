@@ -1,6 +1,6 @@
 import React from 'react'
 import { RenderAPI, render, fireEvent } from '@testing-library/react-native';
-import TodoForm, { todoIdInputPlaceholder, todoTitleInputPlaceholder } from 'components/molecules/TodoForm';
+import TodoForm, { todoTitleInputPlaceholder } from 'components/molecules/TodoForm';
 import { ReactTestInstance } from 'react-test-renderer';
 import { componentsButtonTestID } from 'components/atoms/Button';
 
@@ -11,10 +11,6 @@ describe('TodoForm render', () => {
     beforeEach(() => {
         handlePress = jest.fn();
         wrapper = render(<TodoForm onSubmit={handlePress} />);
-    });
-
-    it('should render Input component for id', () => {
-        expect(wrapper.getAllByPlaceholderText(todoIdInputPlaceholder)).toHaveLength(1);
     });
 
     it('should render Input component for title', () => {
@@ -34,11 +30,11 @@ describe('TodoForm interaction', () => {
     let idInput: ReactTestInstance;
     let titleInput: ReactTestInstance;
 
-    const typedTodoId = "1";
+    /* const typedTodoId = "1"; */
     const typedTodoTitle = "Todo 1";
 
     const returnedValues = {
-        typedTodoId,
+       /*  typedTodoId, */
         typedTodoTitle
     }
 
@@ -46,12 +42,6 @@ describe('TodoForm interaction', () => {
 
         beforeEach(() => {
             wrapper = render(<TodoForm onSubmit={handlePress} />);
-        });
-
-        it('should match todoid value with the returned value from onChangeText', () => {
-            idInput = wrapper.getByPlaceholderText(todoIdInputPlaceholder);
-            fireEvent.changeText(idInput, typedTodoId);
-            expect(idInput.props.value).toEqual(typedTodoId);
         });
 
         it('should match title value with the returned value from onChangeText', () => {

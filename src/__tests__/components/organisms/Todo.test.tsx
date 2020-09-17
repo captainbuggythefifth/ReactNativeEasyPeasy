@@ -57,8 +57,8 @@ describe('Todo interactions', () => {
 
         beforeEach(() => {
             // type in ID field
-            idInput = wrapper.getByPlaceholderText(todoIdInputPlaceholder);
-            fireEvent.changeText(idInput, typedTodoId);
+            /* idInput = wrapper.getByPlaceholderText(todoIdInputPlaceholder);
+            fireEvent.changeText(idInput, typedTodoId); */
 
             // type in name field
             nameInput = wrapper.getByPlaceholderText(todoTitleInputPlaceholder);
