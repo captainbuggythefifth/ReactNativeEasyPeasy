@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Button from 'components/atoms/Button';
 import { useNavigation } from '@react-navigation/native';
+import Text from 'components/atoms/Text';
 
 const HomeScreen = () => {
     const navigation = useNavigation();

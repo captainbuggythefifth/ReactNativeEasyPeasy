@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
-import { TouchableOpacity, Text, StyleSheet, GestureResponderEvent } from "react-native";
+import { TouchableOpacity, StyleSheet, GestureResponderEvent } from "react-native";
+import Text from "./Text";
 
 /**
  * sOpacityDefault
@@ -7,6 +8,11 @@ import { TouchableOpacity, Text, StyleSheet, GestureResponderEvent } from "react
  */
 const sOpacityDefault = {
     opacity: 1
+};
+
+const sButtonStyles = {
+    padding: 16,
+    borderRadius: 8,
 }
 
 /**
@@ -18,10 +24,12 @@ const sOpacityDefault = {
 export const sButton = StyleSheet.create({
     default: {
         ...sOpacityDefault,
-        backgroundColor: "papayawhip"
+        ...sButtonStyles,
+        backgroundColor: "#F8BBD0"
     },
     primary: {
         ...sOpacityDefault,
+        ...sButtonStyles,
         backgroundColor: "blue"
     }
 })
@@ -58,7 +66,9 @@ const Button = ({label, type = "default", onPress}: IButtonProps): ReactElement 
     const style = sButton[type];
     return (
         <TouchableOpacity testID={componentsButtonTestID} style={style} onPress={onPress}>
-            <Text>
+            <Text customStyle={{
+                textAlign: "center"
+            }}>
                 {label}
             </Text>
         </TouchableOpacity >

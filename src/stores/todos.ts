@@ -53,7 +53,7 @@ const todosModel: ITodosModel = {
             actions.addError(error);
         }
     }),
-    generateId: computed(state => state.items.length)
+    generateId: computed(state => state.items.length + 1)
 };
 
 export default todosModel;

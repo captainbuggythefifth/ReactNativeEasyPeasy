@@ -13,7 +13,9 @@ export const sInput = StyleSheet.create({
         padding: 8,
         borderRadius: 8,
         borderColor: "green",
-        borderWidth: 1
+        borderWidth: 1,
+        fontSize: 16,
+        fontWeight: "500"
     }
 })
 

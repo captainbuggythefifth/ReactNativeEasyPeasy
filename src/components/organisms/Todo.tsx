@@ -1,8 +1,9 @@
 import React, { ReactElement, useCallback, useState } from 'react';
 import TodoForm from 'components/molecules/TodoForm';
 import { useStoreActions, useStoreState } from 'stores/hooks';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { ITodo } from 'stores/todos';
+import Text from 'components/atoms/Text';
 
 
 

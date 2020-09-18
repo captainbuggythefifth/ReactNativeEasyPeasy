@@ -65,7 +65,7 @@ describe('Todos interaction', () => {
 
     it('should generate id', () => {
         const id = store.getState().generateId;
-        expect(store.getState().items.length).toEqual(id);
+        expect(store.getState().items.length + 1).toEqual(id);
     })
 
 });
