@@ -24,7 +24,7 @@ jobs:
             npm install
         - name: Build Android Release
           run: |
-            cd android && ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.BOK_MENDER_KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.BOK_MENDER_KEYSTORE_PASSWORD }}'
+            cd android && ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.REACT_NATIVE_EASY_PEASY_KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.REACT_NATIVE_EASY_PEASY_KEYSTORE_PASSWORD }}'
         - name: Upload Artifact
           uses: actions/upload-artifact@v1
           with:
