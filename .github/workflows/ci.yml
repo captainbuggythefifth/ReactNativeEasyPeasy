@@ -43,11 +43,11 @@ jobs:
           cd ios && pod install
       - name: Build app
         run: |
-          xcodebuild -workspace myapp.xcworkspace -scheme myapp archive -archivePath myapp.xcarchive -allowProvisioningUpdates
-          xcodebuild -exportArchive -archivePath ./myapp.xcarchive -exportPath . -exportOptionsPlist myapp/Info.plist
-          mv myapp.ipa ../myapp.ipa
+          xcodebuild -workspace ReactNativeEasyPeasy.xcworkspace -scheme ReactNativeEasyPeasy archive -archivePath ReactNativeEasyPeasy.xcarchive -allowProvisioningUpdates
+          xcodebuild -exportArchive -archivePath ./ReactNativeEasyPeasy.xcarchive -exportPath . -exportOptionsPlist ReactNativeEasyPeasy/Info.plist
+          mv ReactNativeEasyPeasy.ipa ../ReactNativeEasyPeasy.ipa
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: myapp.ipa
+          name: ReactNativeEasyPeasy.ipa
           path: ios/build/
