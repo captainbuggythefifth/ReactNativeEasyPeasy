@@ -1,0 +1,53 @@
+name: Build Android and iOS
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  install-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Run tests
+        run: |
+          npm test
+  build-android:
+    needs: install-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Build Android Release
+        run: |
+          cd android && ./gradlew assembleRelease -PMYAPP_UPLOAD_STORE_PASSWORD='${{ secrets.REACT_NATIVE_EASY_PEASY_KEYSTORE_PASSWORD }}' -PMYAPP_UPLOAD_KEY_PASSWORD='${{ secrets.REACT_NATIVE_EASY_PEASY_KEYSTORE_PASSWORD }}'
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/
+  build-ios:
+    needs: install-and-test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Install pod dependencies
+        run: |
+          cd ios && pod install
+      - name: Build app
+        run: |
+          xcodebuild -workspace ReactNativeEasyPeasy.xcworkspace -scheme ReactNativeEasyPeasy archive -archivePath ReactNativeEasyPeasy.xcarchive -allowProvisioningUpdates
+          xcodebuild -exportArchive -archivePath ./ReactNativeEasyPeasy.xcarchive -exportPath . -exportOptionsPlist ReactNativeEasyPeasy/Info.plist
+          mv ReactNativeEasyPeasy.ipa ../ReactNativeEasyPeasy.ipa
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: ReactNativeEasyPeasy.ipa
+          path: ios/build/

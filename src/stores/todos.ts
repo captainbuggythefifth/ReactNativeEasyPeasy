@@ -1,5 +1,4 @@
-import { action, StateMapper, Action, Thunk, thunk } from "easy-peasy";
-import { IStoreModel } from "./model";
+import { action, Action, Thunk, thunk, Computed, computed } from "easy-peasy";
 import { Injections } from "./store";
 
 export interface ITodo {
@@ -19,14 +18,14 @@ export interface ITodosModel {
     add: Action<ITodosModel, ITodo>,
     fetch: Thunk<ITodosModel, ITodo, Injections>,
     errors: IError[],
-    addError: Action<ITodosModel, IError>
+    addError: Action<ITodosModel, IError>,
+    generateId: Computed<ITodosModel, number>
 }
 
 const todosModel: ITodosModel = {
     items: [],
     errors: [],
     add: action((state, payload) => {
-        // state.todos[payload.id] = payload
         state.items.push(payload)
     }),
     addError: action((state, payload) => {
@@ -54,6 +53,7 @@ const todosModel: ITodosModel = {
             actions.addError(error);
         }
     }),
+    generateId: computed(state => state.items.length + 1)
 };
 
 export default todosModel;

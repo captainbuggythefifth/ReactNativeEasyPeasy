@@ -9,15 +9,18 @@
  */
 
 import React from 'react';
-import Todo from 'components/organisms/Todo';
 import StoreHOC from 'StoreHOC';
+import Navigation from 'navigations/AppNavigator';
+import { NavigationContainer } from '@react-navigation/native';
 
-declare const global: {HermesInternal: null | {}};
+declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
     <StoreHOC>
-      <Todo />
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
     </StoreHOC>
   );
 };
