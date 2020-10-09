@@ -1,11 +1,10 @@
-# React Native Typescript + EasyPeasy
+# React Native Typescript + EasyPeasy + GitHub Workflow CI
 
-This jump start project is made with ❤️ 😍 💕. Nah, kidding. [React Native Typescript](https://reactnative.dev/) + [EasyPeasy](https://easy-peasy.now.sh/) following [Atomic Design Pattern](https://codeburst.io/atomic-design-with-react-e7aea8152957). Of course, everything is tested with [Jest](https://jestjs.io/) and [React Native Testing Library](https://testing-library.com/docs/react-native-testing-library/intro) 👌 💯 👀
+This jump start project is made with ❤️ 😍 💕. Nah, kidding. [React Native Typescript](https://reactnative.dev/) + [EasyPeasy](https://easy-peasy.now.sh/) following [Atomic Design Pattern](https://codeburst.io/atomic-design-with-react-e7aea8152957) + [GitHub Workflow CI](https://blog.usejournal.com/automate-react-native-builds-with-github-actions-af54212d26dc). Of course, everything is tested with [Jest](https://jestjs.io/) and [React Native Testing Library](https://testing-library.com/docs/react-native-testing-library/intro) 👌 💯 👀
 
 
 ## Installation
 
-https://github.com/captainbuggythefifth/ReactNativeEasyPeasy
 
 Before installation of this project, make sure that you have already set up your environment to run [React Native](https://reactnative.dev/docs/environment-setup). 
 
